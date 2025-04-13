@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome 2082!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at center, #001f3f, #000);
+      overflow: hidden;
+      color: #fff;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      z-index: 2;
+      position: relative;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 4.5rem;
+      color: #00ffc8;
+      text-shadow: 0 0 10px #00ffc8, 0 0 30px #00ffc8;
+    }
+    .tagline {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #ccc;
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #00ffc8;
+      width: 0;
+      animation: typewriter 6s steps(70, end) 1s forwards, blink 0.75s step-end infinite;
+    }
+    @keyframes typewriter {
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .glow-circle {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #00ffc8, transparent);
+      border-radius: 50%;
+      filter: blur(100px);
+      animation: pulse 5s infinite alternate;
+    }
+    .glow-circle:nth-child(1) { top: 10%; left: 20%; }
+    .glow-circle:nth-child(2) { bottom: 10%; right: 15%; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent url('') repeat;
+      animation: starsMove 100s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes starsMove {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 10000px; }
+    }
+
+    .credit {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+      z-index: 3;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      opacity: 0.8;
+      animation: confetti-fall linear infinite;
+    }
+    @keyframes confetti-fall {
+      to {
+        transform: translateY(100vh) rotateZ(360deg);
+      }
+    }
+
+    /* New box for message */
+    .message-box {
+      width: 80%;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      margin-top: 30px;
+    }
+    .message-box h2 {
+      color: #fff;
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+    }
+    .message-box textarea {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+      padding: 10px;
+      border: 2px solid #00ffc8;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 1.2rem;
+    }
+    .message-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #fa7000;
+      border: none;
+      font-size: 1.5rem;
+      color: #000;
+      cursor: pointer;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    .message-box button:hover {
+      background-color: #00b59c;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="glow-circle"></div>
+  <div class="glow-circle"></div>
+  <div class="hero">
+    <h1>नयाँ वर्ष २०८२ को हार्दिक शुभकामना!</h1>
+    <p class="tagline">नयाँ उमङ्ग, नयाँ प्रेरणा र नयाँ सम्भावनाको सुरुवात होस्  <br> ❤️ तपाईंको जीवनमा सधैं खुसी, समृद्धि र सफलता भरिरहोस्।</p>
+  </div>
+
+  <!-- Message Box for wishes -->
+  <div class="message-box">
+    <h2>Wish Me Here!</h2>
+    <form action="https://formsubmit.co/hemrajbudha60@gmail.com" method="POST">
+      <input type="hidden" name="_next" value="https://www.your-redirect-url.com"> <!-- Redirect URL -->
+      <input type="hidden" name="_captcha" value="false"> <!-- Disable CAPTCHA -->
+      
+      <textarea name="message" placeholder="Write your New Year wish here..." required></textarea>
+      <button type="submit">Send Wish</button>
+    </form>
+  </div>
+
+  <div class="credit">WARMS WISHES FROM HEMRAJ</div>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    // Confetti generator
+    for (let i = 0; i < 100; i++) {
+      let confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.top = -Math.random() * 100 + "px";
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
